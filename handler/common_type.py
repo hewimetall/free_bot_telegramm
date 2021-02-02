@@ -15,8 +15,7 @@ log_w = logging.warning
 async def text_valid(message: types.Message):
     state = get_state(message.from_user.id)
     log_i("WORK ?")
-    if state.state == 'photo' or state.state == "geo":
-        state.set_photo(message.photo[-1].file_id)
+    state.set_photo(message.photo[-1].file_id)
     if len(state.get_photo()) > 3:
         await message.answer("Воспользуйтесь командой  /present_task для демонстрации ")
 
